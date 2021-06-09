@@ -1,12 +1,13 @@
-function app() {
+function app(title) {
     // CRUD
     // 삽입, 검색, 수정, 삭제
     return {
         schedule: new Array, // 스케줄 리스트
-        add = this.schedule.push,
-        // add: function (title) { // add(추가)
-        //     this.schedule.push(title);
-        // },
+        //add = this.schedule.push,
+        add: function (title) { // add(추가)
+            this.schedule.push(title);
+            console.log(title);
+        },
         delete: function (title) { // delete(삭제)
             let value = this.search(title);
             if (value >= 0)
@@ -28,11 +29,11 @@ function app() {
 }
 
 let program = new app();
-
-let target = document.querySelector("#title").value;
+let target = document.querySelector("#insert").value;
+let searchInsert = document.querySelector("#search").value;
 
 program.add(target);
 program.delete(target);
-program.search(target);
+program.search(searchInsert);
 program.modify(target, "ABC");
 

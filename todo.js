@@ -1,3 +1,10 @@
+var cnt = 1;
+var button = document.getElementById('insertButton');
+var input = document.getElementById('insertInput');
+var list = document.getElementById('schedule_table');
+
+button.addEventListener('click', added);
+
 function app() {
     // CRUD
     // 삽입, 검색, 수정, 삭제
@@ -11,22 +18,25 @@ function app() {
         },
         __str__: (obj) => {
             let response = "";
-            
+
             for (let i = 0; i < obj.schedule.length; i++) {
-                response += '<tr class="partition">';
+                response += '<tr id="table' + cnt +' ">';
                 response += '<td class = "name">' + obj.schedule[i] + '</td>';
-                response += '<td><button onclick="app.update(' + obj.schedule[i] + ')">Edit</button></td>';
-                response += '<td><button onclick="program.delete(' + obj.schedule[i] + ')">Delete</button></td>';
+                response += '<td><button onclick="program.update"(' + i + ')">Edit</button></td>';
+                response += '<td><button onclick="program.delete(' + i + ')">Delete</button></td>';
                 response += '</tr>';
+                cnt++;
                 response += i < obj.schedule.length - 1 ? '\n' : '';
             }
 
             return response;
         },
         delete :  function (title) { // delete(삭제)
-            let value = this.search(title);
-            if (value >= 0)
-                this.schedule.splice(value, 1);
+            // let value = this.search(title);
+            // if (value >= 0)
+            //     this.schedule.splice(value, 1);
+            var tab = document.getElementById('tab'+cnt);
+            tr.removeChild(tab);
         },
         search: function (title) { // search(검색)
             // let search_input = document.getElementsByName("search_input")[0];
@@ -50,12 +60,47 @@ function app() {
             }
         },
         update: function (old_title, new_title) { // upload(수정)
-            let value = this.search(old_title);
-            if (value >= 0)
-                this.schedule[value] = new_title;
+            // let value = this.search(old_title);
+            // if (value >= 0)
+            //     this.schedule[value] = new_title;
+            var el = document.getElementById('edit-name');
+            // Display value in the field
+            el.value = program.schedule[item];
+            // Display fields
+            document.getElementById('spoiler').style.display = 'block';
+
+            document.getElementById('saveEdit').onsubmit = function () {
+                // Get value
+                var editValue = el.value;
+
+                if (editValue) {
+                    // Edit value
+                    self.schedule.splice(item, 1, program.schedule.trim());
+                    // Display the new list
+                    self.__str__();
+                    // Hide fields
+                    CloseInput();
+                }
+            }
         }
     };
 }
+
+function added(){
+    var temp = document.createElement('li');
+    temp.setAttribute("class", "lsit-group-item");
+    temp.setAttribute("id", "li"+cnt);
+    temp.innerHTML = input.value;
+    temp.innerHTML += "<button class='btn' onclick='remove("+cnt+")'>delete</button>";
+    list.appendChild(temp);
+    cnt++;
+}
+
+function remove(cnt) {
+    var li = document.getElementById('li'+cnt);
+    list.removeChile(li);
+}
+
 
 function filter() {
     var search, name, item, i;
@@ -72,6 +117,7 @@ function filter() {
                 }
             }
 }
+
 
 function CloseInput() {
     document.getElementById('spoiler').style.display = 'none';
@@ -92,34 +138,33 @@ let program = new app();
     
 // };
 
-document.querySelector("#insertButton").onclick = () => { // 추가 버튼 클릭 이벤트
-    let insertInput = document.getElementsByName("insertInput")[0];
-    let insertValue = insertInput.value;
+// document.querySelector("#insertButton").onclick = () => { // Add 버튼 클릭 이벤트
+//     let insertInput = document.getElementsByName("insertInput")[0];
+//     let insertValue = insertInput.value;
 
-    program.add(insertValue);
+//     program.add(insertValue);
 
-    document.querySelector("ul#schedule_table").innerHTML = program.__str__(program);
-};
+//     document.querySelector("table#schedule_table").innerHTML = program.__str__(program);
+// };
 
-document.querySelector("#insertButton").onclick = () => { // 추가 버튼 클릭 이벤트
-    var el = document.getElementById('edit-name');
-    // Display value in the field
-    el.value = this.countries[item];
-    // Display fields
-    document.getElementById('spoiler').style.display = 'block';
-    self = this;
+// document.querySelector(".editButton").onclick = () => { // Edit 버튼 클릭 이벤트
+//     var el = document.getElementById('edit-name');
+//     // Display value in the field
+//     el.value = program.schedule[item];
+//     // Display fields
+//     document.getElementById('spoiler').style.display = 'block';
 
-    document.getElementById('saveEdit').onsubmit = function() {
-      // Get value
-      var editValue = el.value;
+//     document.getElementById('saveEdit').onsubmit = function() {
+//       // Get value
+//       var editValue = el.value;
 
-      if (editValue) {
-        // Edit value
-        self.editValue.splice(item, 1, country.trim());
-        // Display the new list
-        self.FetchAll();
-        // Hide fields
-        CloseInput();
-      }
-    }
-};
+//       if (editValue) {
+//         // Edit value
+//         self.schedule.splice(item, 1, program.schedule.trim());
+//         // Display the new list
+//         self.__str__();
+//         // Hide fields
+//         CloseInput();
+//       }
+//     }
+// };

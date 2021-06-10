@@ -9,8 +9,9 @@ h1
 
 #searchbar {position: relative; align-items:center; text-align: center;}
 
-
-
+input[type='submit'], button, [area-label]{
+    cursor: pointer;
+}
 
 
 /*가이드*/

@@ -18,28 +18,31 @@
 	<div><a href="Guide.html"><img id="guide" src="images/guide.png"></a></div>
 	<br>
 
-
 	<!-- 검색창 -->
-<<<<<<< HEAD
-	<input type="text" name="input">
-	<button type="button" id="search">검색</button>
-	<br> <br>
+
+	<div class="searchbox">
+		<div class="header"> <input onkeyup="filter()" type="text"
+			id="search" placeholder="Type to Search">
+		</div>
+	</div>
+
+	<!-- <input type="text" name="search_input">
+	<button type="button" id="search_button">Search</button>
+	<br> <br> -->
 
 	<!-- 입력창 -->
-	<input type="text" name="input" id="insert">
-	<button type="button" onclick="">추가</button>
-=======
-	<input type="text" name="search_input">
-	<button type="button" id="search_button">검색</button>
+	<input type="text" name="insertInput">
+	<button type="button" id="insertButton">Add</button>
 	<br> <br>
 
-	<!-- 입력창 -->
-	<input type="text" name="insert_input">
-	<button type="button" id="insert_button">추가</button>
->>>>>>> da2a4b4d39752c9164c7a5c90c71b1a26179eff5
-	<br> <br>
+	<div id="spoiler" role="area-hidden">
+		<form action="javascript:void(0);" method="POST" id="saveEdit">
+		  <input type="text" id="edit-name">
+		  <input type="submit" value="Edit" /> <a onclick="CloseInput()" area-label="Close">&#10006;</a>
+		</form>
+	</div>
 
-	<ul id="schedule_table"></ul>
+	<table id="schedule_table"></table>
 
 	<script type="text/javascript" src="todo.js"></script>
 </body>

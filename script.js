@@ -17,12 +17,26 @@ function clickButton() {
     li_elem.setAttribute('class', 'list-group-item');
     li_elem.innerHTML = input.value;
     li_elem.innerHTML += "<button style='float: right;' class='btn btn-outline-secondary' type='button' onclick='remove(" + cnt + ")'>삭제</button>";
+    li_elem.innerHTML += "<button style='float: right;' class='btn btn-outline-secondary' type='button' onclick='modify(" + cnt + ")'>수정</button>";
 
     ul_elem.appendChild(li_elem);
 
     list.appendChild(ul_elem);
 
     cnt++;
+}
+
+//수정기능
+function modify(number) {
+
+    var ul_list = document.querySelectorAll("ul.item li.list-group-item");
+    var new_name = window.prompt("Modify: Please input new title of a schedule.")
+
+    var elem = ul_list[number];
+
+    elem.innerHTML = new_name;
+    elem.innerHTML += "<button style='float: right;' class='btn btn-outline-secondary' type='button' onclick='remove(" + number + ")'>삭제</button>";
+    elem.innerHTML += "<button style='float: right;' class='btn btn-outline-secondary' type='button' onclick='modify(" + number + ")'>수정</button>";
 }
 
 //삭제기능

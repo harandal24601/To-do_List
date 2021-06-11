@@ -1,4 +1,6 @@
-body {margin: 0; padding: 0; width: 100%; height: 1200px; text-align: center;}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+
+body {margin: 0; padding: 0; width: 100%; height: 1200px; text-align: center; font-family: 'Noto Sans KR', sans-serif;}
 
 h1
 {
@@ -8,11 +10,3 @@ h1
 #logo {position: relative; text-align: center; width: 828px; height: 150px;}
 
 #searchbar {position: relative; align-items:center; text-align: center;}
-
-input[type='submit'], button, [area-label]{
-    cursor: pointer;
-}
-
-
-/*가이드*/
-#G_logo {position: relative; text-align: center; width: 1028px; height: 150px;}

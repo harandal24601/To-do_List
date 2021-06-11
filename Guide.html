@@ -3,11 +3,10 @@
 <head>
 	<!--utf-8 설정--->
 	<meta charset="utf-8">
+	<!-- 부트스트랩 불러오기-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<!--css파일 링크--->
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!--자바스크립트 불러오기--->
-	<script type="text/javascript" src="todo_script.js"></script>
-	<title>To-Do List 가이드</title>
 
 </head>
 <body>
@@ -18,7 +17,7 @@
 	<br>
 
 	<!-- 메인설명 -->
-	<div><a href="Main.html"><img id="returnlogo" src="images/return.png"></a></div>
+	<div><a href="index.html"><img id="returnlogo" src="images/return.png"></a></div>
 	<br><br>
 	<hr>
 	<br>
@@ -33,7 +32,7 @@
 	<!-- 검색기능 설명 -->
 	<div>1 : 검색기능</div>
 	<br>
-	<textarea name="comment" rows="1" cols="80" >
+	<input onkeyup="filter()" type="text" id="value" style="width: 50%;" placeholder="검색할 내용을 입력해주세요">
 	</textarea>
 	<br>
 	<br>
@@ -48,9 +47,9 @@
 	<br>
 	<div>2 : 일정추가</div>
 	<br>
-	<div><img src="images/plus.png"></div>
+	<button class="btn btn-outline-secondary" type="button" id="button" >추가</button>
 	<br>
-	<div>'더하기'버튼을 누르면 일정을 추가할수있습니다</div>
+	<div>'추가'버튼을 누르면 일정을 추가할수있습니다</div>
 	<br><br><br><br>
 		<hr>
 
@@ -61,9 +60,9 @@
 	<br>
 	<div>3 : 일정삭제</div>
 	<br>
-	<div><img src="images/minus.png"></div>
+	<button class="btn btn-outline-secondary" type="button" id="button">삭제</button>
 	<br>
-	<div>'빼기'버튼을 누르면 일정을 삭제할수있습니다</div>
+	<div>'삭제'버튼을 누르면 일정을 삭제할수있습니다</div>
 	<br><br><br><br>
 		<hr>
 
@@ -74,23 +73,11 @@
 	<br>
 	<div>4 : 수정</div>
 	<br>
-	<div><img src="images/edit.png"></div>
+	<button class="btn btn-outline-secondary" type="button" id="button">수정</button>
 	<br>
-	<div>'수정'버튼을 누르면 일정을 수정할 수 있습니다</div>
+	<div>'수정'버튼을 누르면 알림창이 뜨게 되며 입력시 내용이 수정됩니다</div>
 	<br><br><br><br>
 		<hr>
-
-
-
-
-	<!-- 저장기능 설명 -->
-	<br>
-	<div>2 : 일정추가</div>
-	<br>
-	<div><img src="images/save.png"></div>
-	<br>
-	<div>'저장'버튼을 누르면 입력한 일정을 저장할수있습니다</div>
-	<br><br><br><br>
 
 
 

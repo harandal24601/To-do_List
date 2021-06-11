@@ -16,12 +16,22 @@ function clickButton() {
 
     li_elem.setAttribute('class', 'list-group-item');
     li_elem.innerHTML = input.value;
+    li_elem.innerHTML += "<button style='float: right;' class='btn btn-outline-secondary' type='button' onclick='remove(" + cnt + ")'>삭제</button>";
 
     ul_elem.appendChild(li_elem);
 
     list.appendChild(ul_elem);
 
     cnt++;
+}
+
+//삭제기능
+function remove(cnt) {
+    // var ul = document.getElementById('ul' + cnt);
+    // list.removeChild(ul);
+
+    var ul_list = document.querySelectorAll("ul.item");
+    list.removeChild(ul_list[cnt]);
 }
 
 //검색기능

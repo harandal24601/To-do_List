@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!--utf-8 설정--->
+	<meta charset="utf-8">
+	<title>To-Do List</title>
+	<!-- 부트스트랩 불러오기-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!--css파일 불러오기--->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<h1><img id="logo" src="images/logo.png"></h1>
+	<!--제일 첫번째: 로고이미지 -->
+
+	<!-- 가이드보러가기 -->
+	<div><a href="Guide.html"><img id="guide" src="images/guide.png"></a></div>
+	<br>
+
+	<!--검색-->
+	<div class="searchbox" id="list">
+		<div class="header">
+			<h1>Search</h1>
+			<input onkeyup="filter()" type="text" id="value" style="width: 50%;" placeholder="검색할 내용을 입력해주세요">
+		</div>
+		
+		<ul class="item" style="width: 100%;" >
+			<li class="list-group-item">Apple</li>
+			  </ul>
+		<ul class="item" style="width: 100%;" >
+			<li class="list-group-item">Banana</li>
+			  </ul>
+		<ul class="item" style="width: 100%;" >
+			<li class="list-group-item">Grape</li>
+			  </ul>
+			  
+		
+	</div>
+
+
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
